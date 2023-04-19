@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tienda en Línea</title>
+    <link rel="stylesheet" href="estilos.css">
+  </head>
+  <body>
+    <header>
+      <h1>Tienda Gamer</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Carrito</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Productos Destacados</h2>
+
+      <!--productos/ contenedor-->
+      <section>
+        <div class="product">
+          <img src="/img/1.jpg" alt="Producto 1">
+          <h3>Producto 1</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/2.jpg" alt="Producto 2">
+          <h3>Producto 2</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="2" data-price="20.99">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/3.jpg" alt="Producto 3">
+          <h3>Producto 3</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/4.jpg" alt="Producto 4">
+          <h3>Producto 4</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/5.jpg" alt="Producto 5">
+          <h3>Producto 5</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/6.jpg" alt="Producto 6">
+          <h3>Producto 6</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/7.jpg" alt="Producto 7">
+          <h3>Producto 7</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/8.jpg" alt="Producto 8">
+          <h3>Producto 8</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/9.jpg" alt="Producto 9">
+          <h3>Producto 9</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+        <div class="product">
+          <img src="/img/10.jpg" alt="Producto 10">
+          <h3>Producto 10</h3>
+          <p>Descripción del producto.</p>
+          <button data-product="1" data-price="10.00">Añadir al Carrito</button>
+        </div>
+      </section>
+
+      <!--carrito-->
+      <div id="cart">
+          <h2>Carrito de Compras</h2>
+          <table id="cart-table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+              </tr>
+              
+            </thead>
+            <tbody>
+              <!-- Filas de la tabla del carrito se crearán aquí -->
+            </tbody>
+            <th>ToTal :</th>
+          </table>
+          
+          <div id="cart-total"></div>
+          <button id="buy-button">Finalizar Compra</button>
+          <button id="reset-button">Resetear Carrito</button>
+      </div>
+    </main>
+    <footer>
+      <p>Tienda en Línea © 2023</p>
+    </footer>
+eefe
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="main.js"></script>
+
+  </body>
+</html>
