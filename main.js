@@ -1,9 +1,11 @@
+
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach(button => {
   button.addEventListener('click', addToCart);
 });
 
+//funcion para añadir los productos deseados al carrito
 function addToCart(event) {
   const product = event.target.getAttribute('data-product');
   const price = event.target.getAttribute('data-price');
@@ -20,18 +22,19 @@ function addToCart(event) {
   localStorage.setItem('cart', JSON.stringify(cart));
   
   swal({
-  //propiedad : valor
-  title: "producto agregado al carrito de compras",
-  Text: "podes seguir comprando",
-  icon: "success",
-  button: "gracias"
-})
+    title: "producto agregado al carrito de compras",
+    Text: "podes seguir comprando",
+    icon: "success",
+    button: "gracias"
+  });
 
-  
+  // Actualizar la variable cartItems con la nueva información del carrito del almacenamiento local
+  cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+  showCart(); // llamada a la función para mostrar el carrito actualizado
 }
 
-
-const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 const cartTable = document.querySelector('#cart-table tbody');
 const cartTotal = document.querySelector('#cart-total');
 const buyButton = document.querySelector('#buy-button');
@@ -64,16 +67,26 @@ function showCart() {
 showCart();
 
 buyButton.addEventListener('click', () => {
-  alert('¡Gracias por su compra!');
-  localStorage.removeItem('cart');
-  location.reload();
+  swal({
+    title: "¡Gracias por su compra!",
+    text: "Su compra ha sido procesada",
+    icon: "success",
+    button: "Aceptar"
+  }).then(() => {
+    localStorage.removeItem('cart');
+
+    showCart();// llamada a la función para mostrar el carrito actualizado
+    location.reload();
+  });
 });
+
 
 resetButton.addEventListener('click', () => {
   localStorage.removeItem('cart');
+
+  // Actualizar la variable cartItems con la nueva información del carrito del almacenamiento local
+  cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+  showCart(); // llamada a la función para mostrar el carrito actualizado
   location.reload();
 });
-
-
-//swal("hola")//
-
