@@ -52,6 +52,20 @@ function removeItem(index) {
   showCart();
 }
 
+function resetCart() {
+  localStorage.removeItem('cart');
+  cartItems = getCart();
+  showCart();
+
+  swal({
+    title: "No tienes productos agregados al carrito",
+    Text: "Carrito vacio",
+    icon: "warning",
+    button: "gracias"
+  });
+}
+
+
 //---------------------------------------------------------------
 let cartItems = getCart();
 const cartTable = document.querySelector('#cart-table tbody');
@@ -93,66 +107,31 @@ function showCart() {
   cartTotal.textContent = `$${total}`;
 }
 
-showCart();
-//---------------------------------------------------------------
-/*buyButton.addEventListener('click', () => {
-  swal({
-    title: "Confirmación de compra",
-    html: `<p>Por favor, confirme su compra:</p><p>Nombre: <input id="name" type="text"></p><p>Tipo de pago:
-    <select id="payment-method">
-        <option value="credit-card">Tarjeta de crédito</option>
-        <option value="debit-card">Tarjeta de débito</option>
-        <option value="paypal">PayPal</option>
-        <option value="mercado-pago">Mercado Pago</option>
-    </select></p>`,
-    showCancelButton: true,
-    confirmButtonText: "Confirmar",
-    cancelButtonText: "Cancelar"
-  }).then((result) => {
-    if (result.isConfirmed) {
-      const name = document.getElementById("name").value;
-      const paymentMethod = document.getElementById("payment-method").value;
-      const paymentResult = simulatePayment(); // Simula el proceso de pago
-
-      // Mostrar un mensaje de éxito o fracaso, dependiendo del resultado del pago simulado
-      if (paymentResult === "success") {
-        swal({
-          title: "¡Gracias por su compra!",
-          text: `Su compra ha sido procesada con éxito con ${paymentMethod}.`,
-          icon: "success",
-          button: "Aceptar"
-        }).then(() => {
-          localStorage.removeItem('cart');
-
-          showCart(); // Llamada a la función para mostrar el carrito actualizado
-          location.reload();
-        });
-      } else {
-        swal({
-          title: "Error al procesar su pago",
-          text: "Lo siento, no pudimos procesar su pago. Por favor, inténtelo de nuevo más tarde.",
-          icon: "error",
-          button: "Aceptar"
-        });
-      }
-    }
-  });
+resetButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  resetCart();
 });
 
-function simulatePayment() {
-  // Esta función simula el proceso de pago. Puede devolver "success" o "error" aleatoriamente para probar la pantalla de confirmación.
-  return Math.random() < 0.5 ? "success" : "error";
-}*/
 
-buyButton.addEventListener('click', () => {
-  const name = prompt('Ingrese su nombre:');
-  if (name) {
-    const paymentMethods = ['tarjeta de credito', 'tarjeta de debito', 'mercado pago', 'paypal'];
-    const paymentMethod = prompt('Seleccione el método de pago: ' + paymentMethods.join(', '));
+showCart();
+//---------------------------------------------------------------
+buyButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  const form = document.querySelector('form');
+  const formData = new FormData(form);
+  const name = formData.get('name');
+  const paymentMethod = formData.get('payment');
+  const cardNumber = formData.get('card-number');
+  const email = formData.get('email');
+  const phone = formData.get('phone');
+  const address = formData.get('address');
+  const city = formData.get('city');
+  const zip = formData.get('zip');
+  const country = formData.get('country');
 
+  if (name && paymentMethod) {
+    const paymentMethods = ['credit-card', 'debit-card', 'mercado-pago', 'paypal'];
     if (paymentMethods.includes(paymentMethod)) {
-      const cardNumber = prompt('Ingrese el número de su tarjeta de pago:');
-
       swal({
         title: "¡Gracias por su compra!",
         text: `Su compra ha sido procesada con éxito utilizando ${paymentMethod}.`,
@@ -174,11 +153,9 @@ buyButton.addEventListener('click', () => {
   } else {
     swal({
       title: "Error",
-      text: "Debe ingresar su nombre",
+      text: "Debe completar los campos obligatorios",
       icon: "error",
       button: "Aceptar"
     });
   }
 });
-
-

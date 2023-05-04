@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100&family=Raleway:wght@100;400&display=swap" rel="stylesheet">
+
+    <!--AOS-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!--estilo CSS-->
+    <link rel="stylesheet" href="estilos.css">
+    
+    <title>Carrito</title>
+</head>
+
+<body class="body">
+
+    <header class="header">
+    <h1 class="header__title">Tienda Gamer</h1>
+    </header>
+
+    <!-------------------------Nav---------------------->
+    <nav class="nav">
+        <ul class="nav__ul">
+            <li class="nav__li"><a class="nav__a" href="/index.html">Inicio</a></li>
+            <li class="nav__li"><a class="nav__a" href="#">Productos</a></li>
+            <li class="nav__li"><a class="nav__a" href="/carrito.html">Carrito</a></li>
+            <li class="nav__li"><a class="nav__a" href="/contactos.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main class="main__carrito">
+    <!--------------------carrito----------------------->
+        <div div id="cart">
+            <h2>Carrito de Compras</h2>
+            <table id="cart-table">
+                <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <!-- Filas de la tabla del carrito se crearán aquí -->
+                </tbody>
+                <th>ToTal :</th>
+            </table>
+
+            <div id="cart-total"></div>
+            <button id="reset-button">Limpiar Carrito</button>
+        </div>
+    <!--------------------consulta--------------------
+        <form class="section-vuelos__form"> 
+        <div class="calendario">
+                <table class="calendario">
+                    <div class="section-vuelos__titulos"data-aos="fade-down">
+                        <h5>Fechas Disponibles</h5>
+                        <div class="line"></div>
+                    </div>
+                    <input type='date'  name="date" id="date" required>
+                </table>
+                <br>
+        </div>
+        <div class="section-vuelos__titulos"data-aos="fade-down">
+                <h5>Destinos Disponibles</h5>
+                <div class="line"></div>
+        </div>
+            <label for="Destinos Disponibles"></label>
+            <select name="Destinos Disponibles" id="DestinosDisponibles">
+                    <option value="Disponibles">Disponibles</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Amsterdan">Amsterdan</option>
+                    <option value="Roma">Roma</option>
+                    <option value="Madrid">Madrid</option>
+                    <option value="Berlín">Berlín</option>
+                    <option value=" NewYork">NewYork</option>
+                    <option value="Londres">Londres</option>
+                    <option value="otros">Otros..</option>
+            </select>
+        <div class="section-vuelos__titulos"data-aos="fade-down">
+                <h5>Metodo de pago</h5>
+                <div class="line"></div>
+        </div>
+        <label for="Metodo de pago"></label>
+        <select name="Metodo de pago" id="Metododepago">
+                    <option value="#">Metodos</option>
+                    <option value="Mercado Pago">Mercado Pago</option>
+                    <option value="Debito">Debito</option>
+                    <option value="Credito">Credito</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="otros">Otros..</option>
+        </select>
+        <button type="submit" class="btn__l" input type="submit" value="Comprar ">Viajar</button>
+        <button type="submit" class="btn__l" input type="submit" value="Reservar ">Reservar</button>
+        <button type="reset" class="btn__l"  value="Limpiar formulario">Limpiar</button>
+        <br>
+        </form>-->
+        <section class="order-info">
+            <h2>Información del pedido</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Nombre completo:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección:</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="city">Ciudad:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">Código postal:</label>
+                    <input type="text" id="zip" name="zip" required>
+                </div>
+                <div class="form-group">
+                    <label for="country">País:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment">Método de pago:</label>
+                    <select id="payment" name="payment" required>
+                        <option value="">Seleccione un método de pago</option>
+                        <option value="credit-card">Tarjeta de crédito</option>
+                        <option value="debit-card">Tarjeta de débito</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="mercado-pago">Mercado Pago</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Número de tarjeta:</label>
+                    <input type="text" id="card-number" name="card-number">
+                </div>
+                <div class="form-group">
+                    <label for="card-expiry">Fecha de vencimiento:</label>
+                    <input type="text" id="card-expiry" name="card-expiry">
+                </div>
+                <div class="form-group">
+                    <label for="card-cvv">CVV:</label>
+                    <input type="text" id="card-cvv" name="card-cvv">
+                </div>
+                <button id="buy-button">Finalizar Compra</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!---------------footer----------->
+    <footer class="footer">
+    <p>Tienda en Línea © 2023 | Diseñado por JDAVILA - Todos los derechos reservados.</p>
+    </footer>
+
+    <!---------------scripts----------->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="main.js"></script>
+
+    <!------Script AOS------>
+    <script> AOS.init();</script>
+
+</body>
+</html>
